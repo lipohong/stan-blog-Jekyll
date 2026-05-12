@@ -13,10 +13,7 @@ mermaid: true
 > Next: Part 4 makes bigger state easier with reducers, refs, and better data shapes.  
 > Version note: npm reported `react@19.2.6` while the official docs currently document React 19.2.
 
-
-## English Version
-
-### Where This Part Fits
+## Introduction: Where This Part Fits
 
 Part 2 introduced state changes and event handlers. In this part we focus on **map, keys, controlled inputs, validation, conditional UI**. The goal is not to memorize API names. The goal is to build a mental model that helps you read code written by another developer and predict what React will do next.
 
@@ -24,7 +21,7 @@ A list in React is like a row of lockers. The key prop is the locker number. If 
 
 React rewards small, explicit steps. A beginner often tries to understand the whole app at once, then gets lost. A real programmer usually moves in the opposite direction: find one component, find its inputs, find its local memory, find the event that changes that memory, then follow the render.
 
-### Core Terms
+## Core Terms
 
 | Term | Beginner meaning |
 | --- | --- |
@@ -33,7 +30,7 @@ React rewards small, explicit steps. A beginner often tries to understand the wh
 | `controlled input` | The input value comes from React state; typing fires onChange to update that state. |
 | `conditional rendering` | Return different UI branches based on state, props, or data status. |
 
-### The Render Story
+## The Render Story
 
 A React screen is a tree. The root renders `App`, `App` renders smaller components, and those components render even smaller pieces. When state changes, React does not ask you to manually patch the DOM. It calls your component again, receives the next UI description, compares it with the previous description, and updates the browser efficiently.
 
@@ -41,35 +38,11 @@ The beginner mistake is thinking "render" means "delete the whole page and rebui
 
 For this post, keep these names in your head: map rendering, keys, controlled input, conditional rendering. Every code example below is just another way of combining those same ideas.
 
-## 粵語中文版
-
-### 今篇喺系列入面嘅位置
-
-Part 2 introduced state changes and event handlers. 今篇集中講 **map, keys, controlled inputs, validation, conditional UI**。目標唔係背 API 名，而係建立一個腦內地圖：當你睇到其他人寫嘅 React code，你可以估到下一步 React 會做咩。
-
-React list 好似一排 locker。`key` 就係 locker 號碼。如果你用位置做號碼，一開始好似冇事，但有人喺最前面插入新 locker，成排嘢就好似搬錯晒位。
-
-React 最鍾意細步、清楚、可預測。新手成日一嚟就想理解成個 app，結果就迷路。實戰 programmer 通常倒轉做：先搵一個 component，睇佢收咩 input，睇佢自己記住咩 state，睇邊個 event 會改 state，最後跟住 render 條路行。
-
-### 核心 Terms
-
-| Term | 新手理解 |
-| --- | --- |
-| `map rendering` | Turn arrays of data into arrays of elements. 呢個 term 我哋先保留英文，因為你之後睇官方 docs、Stack Overflow、GitHub issue 都會見到同一個字。 |
-| `keys` | Stable identities help React match previous and next children correctly. 呢個 term 我哋先保留英文，因為你之後睇官方 docs、Stack Overflow、GitHub issue 都會見到同一個字。 |
-| `controlled input` | The input value comes from React state; typing fires onChange to update that state. 呢個 term 我哋先保留英文，因為你之後睇官方 docs、Stack Overflow、GitHub issue 都會見到同一個字。 |
-| `conditional rendering` | Return different UI branches based on state, props, or data status. 呢個 term 我哋先保留英文，因為你之後睇官方 docs、Stack Overflow、GitHub issue 都會見到同一個字。 |
-
-### Render 呢件事點諗
-
-React 畫面係一棵 tree。root render `App`，`App` render 細 component，細 component 再 render 更細嘅 UI。當 state 改變，React 唔係要你人手 patch DOM；佢會再 call 你個 component，攞到下一個 UI 描述，再同上一個描述比較，最後更新 browser 入面需要改嘅地方。
-
-新手常見誤會係覺得 render 等於「成頁刪晒再砌過」。咁諗會令你驚。更實用嘅諗法係：render 即係 component function 根據而家嘅 inputs 描述畫面；至於 DOM 點樣最少量更新，交俾 React。
-
+## Code Implementation: Examples and Walkthroughs
 
 ### Example 1: Read the Code Slowly
 
-Before reading the snippet, predict three things: what data enters the component, what event can happen, and what visible output should change. After reading it, explain it once in English and once in Cantonese. This habit trains you to understand React code without depending on tutorials forever.
+Before reading the snippet, predict three things: what data enters the component, what event can happen, and what visible output should change. After reading it, explain it back in your own words. This habit trains you to understand React code without depending on tutorials forever.
 
 {% raw %}
 ```tsx
@@ -113,12 +86,9 @@ function TaskList({
 
 **English walkthrough:** Start from the component boundary. Check the props or local variables first. Then scan for Hooks because Hooks tell you what the component remembers or synchronizes. Finally, read the returned JSX as a plain UI description. If the example has an event handler, imagine the click or typing action, then follow the state update into the next render.
 
-**粵語 walkthrough：** 由 component 邊界開始睇。先睇 props 或 local variables，再掃 Hooks，因為 Hooks 會話你知 component 記住咩或者同步咩。最後將 JSX 當成普通 UI 描述咁讀。如果有 event handler，就想像自己 click 或打字，跟住 state update 行去下一次 render。
-
-
 ### Example 2: Read the Code Slowly
 
-Before reading the snippet, predict three things: what data enters the component, what event can happen, and what visible output should change. After reading it, explain it once in English and once in Cantonese. This habit trains you to understand React code without depending on tutorials forever.
+Before reading the snippet, predict three things: what data enters the component, what event can happen, and what visible output should change. After reading it, explain it back in your own words. This habit trains you to understand React code without depending on tutorials forever.
 
 {% raw %}
 ```tsx
@@ -157,12 +127,9 @@ function TaskForm({ onCreate }: { onCreate: (title: string) => void }) {
 
 **English walkthrough:** Start from the component boundary. Check the props or local variables first. Then scan for Hooks because Hooks tell you what the component remembers or synchronizes. Finally, read the returned JSX as a plain UI description. If the example has an event handler, imagine the click or typing action, then follow the state update into the next render.
 
-**粵語 walkthrough：** 由 component 邊界開始睇。先睇 props 或 local variables，再掃 Hooks，因為 Hooks 會話你知 component 記住咩或者同步咩。最後將 JSX 當成普通 UI 描述咁讀。如果有 event handler，就想像自己 click 或打字，跟住 state update 行去下一次 render。
-
-
 ### Example 3: Read the Code Slowly
 
-Before reading the snippet, predict three things: what data enters the component, what event can happen, and what visible output should change. After reading it, explain it once in English and once in Cantonese. This habit trains you to understand React code without depending on tutorials forever.
+Before reading the snippet, predict three things: what data enters the component, what event can happen, and what visible output should change. After reading it, explain it back in your own words. This habit trains you to understand React code without depending on tutorials forever.
 
 {% raw %}
 ```tsx
@@ -198,12 +165,9 @@ function TaskApp() {
 
 **English walkthrough:** Start from the component boundary. Check the props or local variables first. Then scan for Hooks because Hooks tell you what the component remembers or synchronizes. Finally, read the returned JSX as a plain UI description. If the example has an event handler, imagine the click or typing action, then follow the state update into the next render.
 
-**粵語 walkthrough：** 由 component 邊界開始睇。先睇 props 或 local variables，再掃 Hooks，因為 Hooks 會話你知 component 記住咩或者同步咩。最後將 JSX 當成普通 UI 描述咁讀。如果有 event handler，就想像自己 click 或打字，跟住 state update 行去下一次 render。
-
-
 ### Example 4: Read the Code Slowly
 
-Before reading the snippet, predict three things: what data enters the component, what event can happen, and what visible output should change. After reading it, explain it once in English and once in Cantonese. This habit trains you to understand React code without depending on tutorials forever.
+Before reading the snippet, predict three things: what data enters the component, what event can happen, and what visible output should change. After reading it, explain it back in your own words. This habit trains you to understand React code without depending on tutorials forever.
 
 {% raw %}
 ```tsx
@@ -228,9 +192,6 @@ function StatusMessage({ status }: { status: 'idle' | 'loading' | 'error' | 'suc
 
 **English walkthrough:** Start from the component boundary. Check the props or local variables first. Then scan for Hooks because Hooks tell you what the component remembers or synchronizes. Finally, read the returned JSX as a plain UI description. If the example has an event handler, imagine the click or typing action, then follow the state update into the next render.
 
-**粵語 walkthrough：** 由 component 邊界開始睇。先睇 props 或 local variables，再掃 Hooks，因為 Hooks 會話你知 component 記住咩或者同步咩。最後將 JSX 當成普通 UI 描述咁讀。如果有 event handler，就想像自己 click 或打字，跟住 state update 行去下一次 render。
-
-
 ## Practice Lab: Build It, Break It, Fix It
 
 This lab connects this article to the rest of the series. Do not only paste the code. Type it, rename variables, remove one line at a time, and watch the browser complain. React becomes much less scary when you learn what each error message is trying to protect.
@@ -241,16 +202,6 @@ This lab connects this article to the rest of the series. Do not only paste the 
 4. Add one tiny feature that prepares you for the next post: Part 4 makes bigger state easier with reducers, refs, and better data shapes.
 5. Open React DevTools and inspect the component tree.
 6. Write down which values are props, which values are state, and which values are plain derived variables.
-
-### Cantonese Practice Notes
-
-今篇唔好只係 copy code。你要試吓打錯 prop 名、刪走 dependency、用錯 key、或者將 state 直接 mutate，睇吓 React 同 browser 會點樣提醒你。新手最容易驚 error，但其實 error 係老師傅喺你後面提你：「呢度遲早會爆，依家快啲修正。」
-
-- 如果畫面冇更新，先問：我係咪改咗舊 object，而唔係建立新 object？
-- 如果 effect 不停跑，先問：dependency 係咪每次 render 都變成新 reference？
-- 如果 list 行為怪，先問：key 係咪穩定 ID，而唔係 array index？
-- 如果 form 打唔到字，先問：input `value` 有冇配返 `onChange`？
-- 如果 component 好難測，先問：我係咪將太多責任塞咗入同一個 function？
 
 ```mermaid
 flowchart TD
@@ -274,7 +225,6 @@ flowchart TD
 - Prefer boring state names: `isOpen`, `selectedId`, `draftTitle`, `status`, `error`.
 - When you feel tempted to add a library, first build the tiny version yourself so you know what problem the library solves.
 
-
 ## Common Beginner Mistakes
 
 - Trying to learn React by memorizing syntax only. Syntax matters, but the mental model matters more.
@@ -283,6 +233,225 @@ flowchart TD
 - Making one giant component. When a JSX block becomes hard to scan, extract a named component.
 - Ignoring official docs. For React 19.2, the official docs are practical and example-heavy.
 
+## Looking Ahead
+
+This part is one step in the series. Keep the code small, verify it in the browser, and continue with the next topic: Part 4 makes bigger state easier with reducers, refs, and better data shapes. The important habit is steady practice: read the component boundary, identify props and state, trigger one event, and confirm the next render.
+
+
+---
+---
+
+## 簡介：今篇喺系列入面嘅位置
+
+上一篇我哋開始處理 state change 同 event handler。今篇集中講 **map, keys, controlled inputs, validation, conditional UI**。目標唔係背 API 名，而係建立一個腦內地圖：當你睇到其他人寫嘅 React code，你可以估到下一步 React 會做咩。
+
+React list 好似一排 locker。`key` 就係 locker 號碼。如果你用位置做號碼，一開始好似冇事，但有人喺最前面插入新 locker，成排嘢就好似搬錯晒位。
+
+React 最鍾意細步、清楚、可預測。新手成日一嚟就想理解成個 app，結果就迷路。實戰 programmer 通常倒轉做：先搵一個 component，睇佢收咩 input，睇佢自己記住咩 state，睇邊個 event 會改 state，最後跟住 render 條路行。
+
+## 核心 Terms
+
+| Term | 新手理解 |
+| --- | --- |
+| `map rendering` | 用 array `.map()` 將一批 data 轉成一批 elements。 |
+| `keys` | `key` 係 list item 嘅穩定身份證，幫 React 對返前後兩次 render 嘅 child。 |
+| `controlled input` | Input 嘅 `value` 由 React state 控制，user 打字會經 `onChange` 更新 state。 |
+| `conditional rendering` | 根據 state、props 或 data status，選擇 render 邊一段 UI。 |
+
+## Render 呢件事點諗
+
+React 畫面係一棵 tree。root render `App`，`App` render 細 component，細 component 再 render 更細嘅 UI。當 state 改變，React 唔係要你人手 patch DOM；佢會再 call 你個 component，攞到下一個 UI 描述，再同上一個描述比較，最後更新 browser 入面需要改嘅地方。
+
+新手常見誤會係覺得 render 等於「成頁刪晒再砌過」。咁諗會令你驚。更實用嘅諗法係：render 即係 component function 根據而家嘅 inputs 描述畫面；至於 DOM 點樣最少量更新，交俾 React。
+
+## Code 實作：Examples 同 Walkthrough
+
+### 例子 1：慢慢讀段 Code
+
+讀 code 之前，先估三樣嘢：呢個 component 收咩 data、user 可以做咩 event、畫面邊度應該會變。讀完之後，用自己嘅說話講返一次。呢個習慣會幫你慢慢脫離 tutorial，真正睇得明 React code。
+
+{% raw %}
+```tsx
+type Task = {
+  id: string;
+  title: string;
+  done: boolean;
+};
+
+function TaskList({
+  tasks,
+  onToggle
+}: {
+  tasks: Task[];
+  onToggle: (id: string) => void;
+}) {
+  if (tasks.length === 0) {
+    return <p>No tasks yet. Add your first task.</p>;
+  }
+
+  return (
+    <ul>
+      {tasks.map(task => (
+        <li key={task.id}>
+          <label>
+            <input
+              type="checkbox"
+              checked={task.done}
+              onChange={() => onToggle(task.id)}
+            />
+            <span>{task.done ? 'Done' : 'Open'}</span>
+            {task.title}
+          </label>
+        </li>
+      ))}
+    </ul>
+  );
+}
+```
+{% endraw %}
+
+**Walkthrough：** 由 component 邊界開始睇。先睇 props 或 local variables，再掃 Hooks，因為 Hooks 會話你知 component 記住咩或者同步咩。最後將 JSX 當成普通 UI 描述咁讀。如果有 event handler，就想像自己 click 或打字，跟住 state update 行去下一次 render。
+
+### 例子 2：慢慢讀段 Code
+
+讀 code 之前，先估三樣嘢：呢個 component 收咩 data、user 可以做咩 event、畫面邊度應該會變。讀完之後，用自己嘅說話講返一次。呢個習慣會幫你慢慢脫離 tutorial，真正睇得明 React code。
+
+{% raw %}
+```tsx
+import { FormEvent, useState } from 'react';
+
+function TaskForm({ onCreate }: { onCreate: (title: string) => void }) {
+  const [title, setTitle] = useState('');
+  const trimmed = title.trim();
+  const canSubmit = trimmed.length >= 3;
+
+  function handleSubmit(event: FormEvent) {
+    event.preventDefault();
+    if (!canSubmit) return;
+    onCreate(trimmed);
+    setTitle('');
+  }
+
+  return (
+    <form onSubmit={handleSubmit}>
+      <label htmlFor="task-title">Task title</label>
+      <input
+        id="task-title"
+        value={title}
+        onChange={event => setTitle(event.target.value)}
+        placeholder="Write at least 3 characters"
+      />
+      {!canSubmit && title.length > 0 && (
+        <p role="alert">Please type at least 3 characters.</p>
+      )}
+      <button disabled={!canSubmit}>Create</button>
+    </form>
+  );
+}
+```
+{% endraw %}
+
+**Walkthrough：** 由 component 邊界開始睇。先睇 props 或 local variables，再掃 Hooks，因為 Hooks 會話你知 component 記住咩或者同步咩。最後將 JSX 當成普通 UI 描述咁讀。如果有 event handler，就想像自己 click 或打字，跟住 state update 行去下一次 render。
+
+### 例子 3：慢慢讀段 Code
+
+讀 code 之前，先估三樣嘢：呢個 component 收咩 data、user 可以做咩 event、畫面邊度應該會變。讀完之後，用自己嘅說話講返一次。呢個習慣會幫你慢慢脫離 tutorial，真正睇得明 React code。
+
+{% raw %}
+```tsx
+function TaskApp() {
+  const [tasks, setTasks] = useState<Task[]>([]);
+
+  function addTask(title: string) {
+    const task: Task = {
+      id: crypto.randomUUID(),
+      title,
+      done: false
+    };
+    setTasks(current => [task, ...current]);
+  }
+
+  function toggleTask(id: string) {
+    setTasks(current =>
+      current.map(task =>
+        task.id === id ? { ...task, done: !task.done } : task
+      )
+    );
+  }
+
+  return (
+    <main>
+      <TaskForm onCreate={addTask} />
+      <TaskList tasks={tasks} onToggle={toggleTask} />
+    </main>
+  );
+}
+```
+{% endraw %}
+
+**Walkthrough：** 由 component 邊界開始睇。先睇 props 或 local variables，再掃 Hooks，因為 Hooks 會話你知 component 記住咩或者同步咩。最後將 JSX 當成普通 UI 描述咁讀。如果有 event handler，就想像自己 click 或打字，跟住 state update 行去下一次 render。
+
+### 例子 4：慢慢讀段 Code
+
+讀 code 之前，先估三樣嘢：呢個 component 收咩 data、user 可以做咩 event、畫面邊度應該會變。讀完之後，用自己嘅說話講返一次。呢個習慣會幫你慢慢脫離 tutorial，真正睇得明 React code。
+
+{% raw %}
+```tsx
+// Common conditional rendering styles
+{status === 'loading' && <Spinner />}
+{status === 'error' ? <ErrorPanel /> : <Content />}
+
+function StatusMessage({ status }: { status: 'idle' | 'loading' | 'error' | 'success' }) {
+  switch (status) {
+    case 'idle':
+      return <p>Ready when you are.</p>;
+    case 'loading':
+      return <p>Loading...</p>;
+    case 'error':
+      return <p role="alert">Something went wrong.</p>;
+    case 'success':
+      return <p>Saved.</p>;
+  }
+}
+```
+{% endraw %}
+
+**Walkthrough：** 由 component 邊界開始睇。先睇 props 或 local variables，再掃 Hooks，因為 Hooks 會話你知 component 記住咩或者同步咩。最後將 JSX 當成普通 UI 描述咁讀。如果有 event handler，就想像自己 click 或打字，跟住 state update 行去下一次 render。
+
+## 練習 Lab：整出嚟、整壞佢、再修好佢
+
+呢個 lab 會將今篇同成個系列連埋一齊。唔好只係 paste code；你要親手打、改 variable 名、逐行刪走試吓，睇 browser 同 React 會點樣投訴。當你明白 error message 想保護你咩，React 就冇咁可怕。
+
+1. 開一個新嘅 Vite React TypeScript project。
+2. 先 copy 今篇最細嗰個 example，確認畫面行到。
+3. 加返上一篇學過嘅一個 feature，等知識鏈唔會斷。
+4. 加入一個好細嘅 feature，預備下一篇會講嘅內容：第四篇會用 reducers、refs 同更好嘅 data shape，令更大嘅 state 容易管理。
+5. 打開 React DevTools，睇吓 component tree。
+6. 寫低邊啲 value 係 props、邊啲係 state、邊啲只係 render 時即時計出嚟嘅 derived variables。
+
+
+```mermaid
+flowchart TD
+    A[Read the UI] --> B[Find the component]
+    B --> C[Identify props]
+    C --> D[Identify state]
+    D --> E[Trigger event]
+    E --> F[React renders again]
+    F --> G[Compare expected DOM]
+    G --> H{Bug?}
+    H -->|Yes| B
+    H -->|No| I[Add the next small feature]
+```
+
+### Part 3 Debug Checklist
+
+- 亂改 code 之前，先讀 browser console。
+- 分清楚 bug 係 render 前、render 中，定係 Effect 之後先發生。
+- Component 名要有意思；`ProductCard` 會比 `Box` 更幫到未來嘅你。
+- Event handler 盡量細。如果一個 event 要做十步，將計算搬去 helper function，再分開測。
+- State 名寧願悶但清楚：`isOpen`、`selectedId`、`draftTitle`、`status`、`error`。
+- 想加 library 之前，先自己整一個 tiny version，明白 library 到底幫你解決咩問題。
+
 ## 新手常犯錯
 
 - 只背 syntax。Syntax 要識，但 mental model 更重要。
@@ -290,6 +459,10 @@ flowchart TD
 - 儲 duplicate state。如果一個 value 可以由現有 props 或 state 計出嚟，就唔好再開多個 state。
 - 一個 component 寫到成座山咁大。JSX 一難 scan，就抽做有名 component。
 - 唔睇官方 docs。React 19.2 docs 已經有好多實用例子，尤其係 Hooks、Effects、Server APIs 同 Compiler 部分。
+
+## 總結與展望
+
+今篇係系列入面其中一步。保持 code 細、喺 browser 入面驗證，然後繼續下一個 topic：第四篇會用 reducers、refs 同更好嘅 data shape，令更大嘅 state 容易管理。 最重要嘅習慣係穩定練習：讀 component boundary、分清 props 同 state、觸發一個 event，再確認下一次 render 係咪符合預期。
 
 
 ## References
