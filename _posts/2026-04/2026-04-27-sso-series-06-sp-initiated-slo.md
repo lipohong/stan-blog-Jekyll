@@ -12,7 +12,7 @@ Logging a user in via SSO is only half the battle. In an enterprise environment,
 
 To solve this, we must implement **Single Logout (SLO)**. SLO ensures that terminating a session in our platform (the Service Provider, or SP) also notifies the IdP to terminate the global session, and vice versa.
 
-In Part 6, we will implement `FN/ADM/SSO/006`: **SP-Initiated Single Logout**. We will explore how to identify an SSO-backed session, construct proper OIDC and SAML 2.0 logout requests, securely tear down our local Redis session, and clean up the reverse session index.
+In Part 6, we will implement `SSO-006`: **SP-Initiated Single Logout**. We will explore how to identify an SSO-backed session, construct proper OIDC and SAML 2.0 logout requests, securely tear down our local Redis session, and clean up the reverse session index.
 
 ---
 
@@ -213,7 +213,7 @@ In Part 7, we will explore the crown jewel of enterprise session management: **I
 
 為咗解決呢個問題，我哋必須要實作 **單一登出 (Single Logout, SLO)**。SLO 確保當我哋平台 (Service Provider, SP) 終止 Session 嗰陣，會同時通知 IdP 去終止個 Global session，反之亦然。
 
-喺第六集，我哋會實作 `FN/ADM/SSO/006`: **SP 發起嘅單一登出 (SP-Initiated Single Logout)**。我哋會探討點樣識別一個由 SSO 建立嘅 Session、點樣 Generate 正確嘅 OIDC 同 SAML 2.0 Logout requests、點樣安全咁炸毀我哋 Local 嘅 Redis session，同埋點樣清理個反向 Session 索引 (Reverse Session Index)。
+喺第六集，我哋會實作 `SSO-006`: **SP 發起嘅單一登出 (SP-Initiated Single Logout)**。我哋會探討點樣識別一個由 SSO 建立嘅 Session、點樣 Generate 正確嘅 OIDC 同 SAML 2.0 Logout requests、點樣安全咁炸毀我哋 Local 嘅 Redis session，同埋點樣清理個反向 Session 索引 (Reverse Session Index)。
 
 ---
 

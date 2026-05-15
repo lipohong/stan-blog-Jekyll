@@ -12,7 +12,7 @@ In the previous parts, we set up the IdP configuration, designed the attribute m
 
 When the Identity Provider (IdP) redirects the user back to our application, they hand us an **ID Token**. This token is essentially a JSON Web Token (JWT) that asserts the identity of the user. But how do we know the IdP actually issued this token? How do we know it wasn't intercepted, altered, or replayed by a malicious actor?
 
-In Part 4, we will implement `FN/ADM/SSO/003`. We will build a robust OIDC strategy that fetches the IdP's JSON Web Key Set (JWKS), mathematically verifies the JWT signature, defends against replay attacks using nonces, and securely extracts the claims needed for our mapping engine.
+In Part 4, we will implement `SSO-003`. We will build a robust OIDC strategy that fetches the IdP's JSON Web Key Set (JWKS), mathematically verifies the JWT signature, defends against replay attacks using nonces, and securely extracts the claims needed for our mapping engine.
 
 ---
 
@@ -221,7 +221,7 @@ In Part 5, we will dive into the legacy giant: **SAML 2.0 Integration & Assertio
 
 當 Identity Provider (IdP) 將個 User Redirect 返嚟我哋個 Application 嗰陣，佢哋會交出一個 **ID Token**。呢個 Token 本質上係一個 JSON Web Token (JWT)，用嚟證明個 User 嘅身份。但係我哋點知呢個 Token 真係由嗰個 IdP 發出嚟？我哋點知佢冇俾黑客中途攔截、竄改，或者重放 (Replay)？
 
-喺第四集，我哋會實作 `FN/ADM/SSO/003`。我哋會寫一個堅如磐石嘅 OIDC Strategy，佢識得去攞 IdP 嘅 JSON Web Key Set (JWKS)、用數學方法驗證 JWT 嘅簽名、利用 Nonces 去防禦重放攻擊，同埋安全咁抽出 Mapping engine 需要嘅 Claims。
+喺第四集，我哋會實作 `SSO-003`。我哋會寫一個堅如磐石嘅 OIDC Strategy，佢識得去攞 IdP 嘅 JSON Web Key Set (JWKS)、用數學方法驗證 JWT 嘅簽名、利用 Nonces 去防禦重放攻擊，同埋安全咁抽出 Mapping engine 需要嘅 Claims。
 
 ---
 

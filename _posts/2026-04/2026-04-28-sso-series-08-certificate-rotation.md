@@ -11,7 +11,7 @@ toc: true
 
 Certificates expire. Keys get compromised. IdPs rotate their signing credentials on a regular schedule—typically every 1-2 years for SAML X.509 certificates, and much more frequently for OIDC JWKS (some providers rotate keys every 24 hours). If our application caches a certificate that suddenly becomes invalid, every SSO login attempt will fail. For a large enterprise, this means hundreds of users locked out simultaneously.
 
-In Part 8, we will implement `FN/ADM/SSO/008`: **Automated Certificate Rotation & Key Management**. We will build systems to automatically discover new keys, gracefully handle key transitions (supporting both old and new keys during a rollover window), and alert administrators before certificates expire.
+In Part 8, we will implement `SSO-008`: **Automated Certificate Rotation & Key Management**. We will build systems to automatically discover new keys, gracefully handle key transitions (supporting both old and new keys during a rollover window), and alert administrators before certificates expire.
 
 ---
 
@@ -604,7 +604,7 @@ The final piece of the puzzle is scaling this to support multiple tenants, each 
 
 證書會過期。金鑰會被洩漏。IdPs 會定期輪換佢哋嘅簽名憑證——通常 SAML X.509 證書每 1-2 年一次，而 OIDC JWKS 就頻密好多（有啲 Provider 每 24 個鐘就輪換一次）。如果我哋個 App Cache 住一個突然失效嘅證書，所有 SSO 登入都會炒粉。對一個大企業嚟講，即係成百個用戶同時被鎖住。
 
-喺第八集，我哋會實作 `FN/ADM/SSO/008`：**自動化證書輪換與金鑰管理**。我哋會建立系統去自動發現新金鑰、優雅地處理金鑰過渡期（喺輪換窗口期間同時支援新舊金鑰），同埋喺證書過期之前警告管理員。
+喺第八集，我哋會實作 `SSO-008`：**自動化證書輪換與金鑰管理**。我哋會建立系統去自動發現新金鑰、優雅地處理金鑰過渡期（喺輪換窗口期間同時支援新舊金鑰），同埋喺證書過期之前警告管理員。
 
 ---
 

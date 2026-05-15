@@ -13,7 +13,7 @@ In enterprise security, an event that isn't logged is an event that never occurr
 
 Regulatory frameworks like **SOC 2 Type II**, **ISO 27001**, **HIPAA**, and **GDPR** all mandate comprehensive audit logging for authentication events. Enterprise customers will not sign a contract unless you can prove that every SSO login, logout, configuration change, and failure is recorded with sufficient detail for forensic analysis.
 
-In Part 10, we will implement `FN/ADM/SSO/010`: **Audit Logging & Compliance**. We will design an immutable audit log system, define the event taxonomy for SSO operations, build alerting rules for suspicious patterns, and prepare the data structures needed for compliance reports.
+In Part 10, we will implement `SSO-010`: **Audit Logging & Compliance**. We will design an immutable audit log system, define the event taxonomy for SSO operations, build alerting rules for suspicious patterns, and prepare the data structures needed for compliance reports.
 
 ---
 
@@ -919,7 +919,7 @@ Thank you for following this series. Keep building securely.
 
 好似 **SOC 2 Type II**、**ISO 27001**、**HIPAA** 同 **GDPR** 呢啲法規框架，全部都規定認證事件必須有全面嘅審計日誌。如果你冇辦法證明每一個 SSO 登入、登出、設定變更同失敗都有被記錄到足夠嘅詳情去做取證分析，企業客戶根本唔會同你簽合約。
 
-喺第十集（最後一集！），我哋會實作 `FN/ADM/SSO/010`：**審計日誌與合規**。我哋會設計一個不可變嘅審計日誌系統、定義 SSO 操作嘅事件分類法、建立可疑模式嘅警報規則，同埋準備合規報告所需嘅數據結構。
+喺第十集（最後一集！），我哋會實作 `SSO-010`：**審計日誌與合規**。我哋會設計一個不可變嘅審計日誌系統、定義 SSO 操作嘅事件分類法、建立可疑模式嘅警報規則，同埋準備合規報告所需嘅數據結構。
 
 ---
 

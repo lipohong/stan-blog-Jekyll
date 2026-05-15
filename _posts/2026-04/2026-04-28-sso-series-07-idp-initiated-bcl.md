@@ -13,7 +13,7 @@ In Part 6, we covered SP-Initiated Logout—where the user actively clicks "Logo
 
 This is the gap that **Back-Channel Logout (BCL)** fills. Instead of relying on the user's browser to relay the logout (front-channel), the IdP sends a direct server-to-server HTTP request to our application's logout endpoint. This is the most robust form of Single Logout because it works even if the user's browser is closed.
 
-In Part 7, we will implement `FN/ADM/SSO/007`: **IdP-Initiated Back-Channel Logout**. We will explore the OIDC Back-Channel Logout specification, the SAML `<LogoutRequest>` back-channel binding, how to look up local sessions using our Reverse Session Index, and the critical challenge of multi-device session termination.
+In Part 7, we will implement `SSO-007`: **IdP-Initiated Back-Channel Logout**. We will explore the OIDC Back-Channel Logout specification, the SAML `<LogoutRequest>` back-channel binding, how to look up local sessions using our Reverse Session Index, and the critical challenge of multi-device session termination.
 
 ---
 
@@ -631,7 +631,7 @@ However, our implementation still has a fragility: **certificate management**. W
 
 就係呢個缺口，**後台登出（Back-Channel Logout, BCL）** 要填上。BCL 唔需要靠用戶個 Browser 嚟傳遞登出訊號（Front-channel），而係 IdP 直接 Server-to-server 發一個 HTTP POST Request 過嚟我哋個 Application 嘅 Logout endpoint。呢個係最穩健嘅 Single Logout 形式，因為就算用戶個 Browser 關咗都照樣 Work。
 
-喺第七集，我哋會實作 `FN/ADM/SSO/007`：**IdP 發起嘅後台登出（IdP-Initiated Back-Channel Logout）**。我哋會探討 OIDC Back-Channel Logout 規格、SAML `<LogoutRequest>` 嘅 Back-channel binding、點樣用我哋嘅反向 Session 索引 (Reverse Session Index) 搵返 Local sessions，同埋多裝置 Session 終止呢個關鍵挑戰。
+喺第七集，我哋會實作 `SSO-007`：**IdP 發起嘅後台登出（IdP-Initiated Back-Channel Logout）**。我哋會探討 OIDC Back-Channel Logout 規格、SAML `<LogoutRequest>` 嘅 Back-channel binding、點樣用我哋嘅反向 Session 索引 (Reverse Session Index) 搵返 Local sessions，同埋多裝置 Session 終止呢個關鍵挑戰。
 
 ---
 

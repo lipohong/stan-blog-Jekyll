@@ -13,7 +13,7 @@ In Parts 1 through 8, we built a single-tenant SSO system—one application supp
 
 The challenge is clear: **how do we isolate each customer's SSO configuration while sharing the same application infrastructure?** A misconfiguration in Customer A's settings must never leak into Customer B's authentication flow.
 
-In Part 9, we will implement `FN/ADM/SSO/009`: **Multi-Tenant SSO Architecture**. We will explore tenant isolation strategies, provider resolution by tenant, cross-tenant attack prevention, and the unique challenges of shared JWKS caching in a multi-tenant environment.
+In Part 9, we will implement `SSO-009`: **Multi-Tenant SSO Architecture**. We will explore tenant isolation strategies, provider resolution by tenant, cross-tenant attack prevention, and the unique challenges of shared JWKS caching in a multi-tenant environment.
 
 ---
 
@@ -612,7 +612,7 @@ The final piece of our SSO journey is visibility. In Part 10, we will build **Au
 
 挑戰好明顯：**點樣喺共享同一套 Application 基礎設施嘅同時，隔離每個客戶嘅 SSO 設定？** 客 A 嘅設定出錯，絕對唔可以影響到客 B 嘅認證流程。
 
-喺第九集，我哋會實作 `FN/ADM/SSO/009`：**多租戶 SSO 架構**。我哋會探討租戶隔離策略、按租戶解像 Provider、防禦跨租戶攻擊，同埋喺多租戶環境入面共享 JWKS Cache 嘅獨特挑戰。
+喺第九集，我哋會實作 `SSO-009`：**多租戶 SSO 架構**。我哋會探討租戶隔離策略、按租戶解像 Provider、防禦跨租戶攻擊，同埋喺多租戶環境入面共享 JWKS Cache 嘅獨特挑戰。
 
 ---
 
