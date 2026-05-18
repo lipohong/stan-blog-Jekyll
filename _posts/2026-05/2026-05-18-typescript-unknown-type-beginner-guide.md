@@ -1548,7 +1548,7 @@ const data: unknown = await response.json();
 
 ---
 
-##中文練習：由細例子開始
+## 練習：由細例子開始
 
 如果你係新手，唔好一開始就挑戰好複雜 schema。先練：
 
