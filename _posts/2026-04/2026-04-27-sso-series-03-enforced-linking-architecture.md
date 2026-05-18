@@ -12,7 +12,7 @@ In Part 1, we secured the protocol exchanges. In Part 2, we built an engine to m
 
 Identity resolution is fraught with security perils. If we match a user incorrectly, we grant an attacker full access to someone else's account (Account Takeover / ATO). Furthermore, enterprise customers often require strict enforcement: once a user links an SSO account, they should *never* be allowed to log in with a local password again. 
 
-Today, we will implement `FN/AUTH/SSO/005` from our specification: The User Matching and ENFORCED Account Linking Architecture. We will handle secure user lookups, dynamic account linking, blocking local passwords, and bypassing TOTP (2FA) for trusted federated identities.
+Today, we will implement `SSO-005` from our specification: The User Matching and ENFORCED Account Linking Architecture. We will handle secure user lookups, dynamic account linking, blocking local passwords, and bypassing TOTP (2FA) for trusted federated identities.
 
 ---
 
@@ -277,7 +277,7 @@ In Part 4, we will dive into the deepest waters of protocol security: **OAuth 2.
 
 Identity Resolution (身份解析) 係充滿保安陷阱嘅。如果我哋 Match 錯咗個 User，就等於雙手奉上咗另一個人嘅 Account 俾黑客 (Account Takeover / ATO)。而且，企業客戶通常要求極度嚴格：一旦用戶 Link 咗個 SSO 帳戶，就 *絕對* 唔可以再俾佢用返 Local password 登入。
 
-今日，我哋會實作 Requirement Spec 入面嘅 `FN/AUTH/SSO/005`：用戶匹配與強制連結架構 (User Matching and ENFORCED Account Linking Architecture)。我哋會處理安全嘅用戶搜尋、動態帳戶連結、封殺 Local 密碼，同埋為受信任嘅聯邦身份 Bypass TOTP (2FA)。
+今日，我哋會實作 Requirement Spec 入面嘅 `SSO-005`：用戶匹配與強制連結架構 (User Matching and ENFORCED Account Linking Architecture)。我哋會處理安全嘅用戶搜尋、動態帳戶連結、封殺 Local 密碼，同埋為受信任嘅聯邦身份 Bypass TOTP (2FA)。
 
 ---
 
